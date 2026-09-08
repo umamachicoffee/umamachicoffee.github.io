@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>馬町珈琲 UMAMACHI COFFEE｜京都・五条の自家焙煎珈琲店</title>
+<meta name="description" content="京都・五条の自家焙煎珈琲店。オランダ GIESEN の焙煎機で焙煎した豆を、一杯ずつハンドドリップで。バーガー・サンドイッチ・自家工房のスイーツも。大谷本廟・三十三間堂すぐ。">
+<meta name="theme-color" content="#FDF9F0">
+<link rel="icon" href="assets/img/favicon.png" sizes="180x180">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="UMAMACHI COFFEE 馬町珈琲">
+<meta property="og:title" content="馬町珈琲 UMAMACHI COFFEE｜京都・五条の自家焙煎珈琲店">
+<meta property="og:description" content="京都・五条の自家焙煎珈琲店。オランダ GIESEN の焙煎機で焙煎した豆を、一杯ずつハンドドリップで。">
+<meta property="og:image" content="assets/img/hero-exterior.jpg">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="馬町珈琲 UMAMACHI COFFEE｜京都・五条の自家焙煎珈琲店">
+<meta name="twitter:description" content="京都・五条の自家焙煎珈琲店。一杯ずつハンドドリップで。">
+<meta name="twitter:image" content="assets/img/hero-exterior.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Shippori+Mincho+B1:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@600&family=Noto+Sans+KR:wght@400;500&family=Noto+Serif+KR:wght@600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "馬町珈琲 UMAMACHI COFFEE",
+  "alternateName": "UMAMACHI COFFEE",
+  "image": "assets/img/hero-exterior.jpg",
+  "telephone": "+81-75-741-8779",
+  "address": {
+    "@type": "PostalAddress",
+    "postalCode": "605-0981",
+    "addressLocality": "京都市東山区",
+    "streetAddress": "常盤町459-13",
+    "addressCountry": "JP"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "09:00",
+    "closes": "17:00"
+  }],
+  "servesCuisine": "Coffee"
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#about">Skip to content</a>
+
+<!-- ================= HEADER ================= -->
+<header class="hdr" id="top">
+  <div class="hdr-in">
+    <a class="brand" href="#top" aria-label="馬町珈琲 UMAMACHI COFFEE">
+      <span class="brand-jp">馬町珈琲</span>
+      <span class="brand-en">UMAMACHI COFFEE</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="#about" data-i18n="nav.about">馬町珈琲について</a></li>
+        <li><a href="#coffee" data-i18n="nav.coffee">珈琲</a></li>
+        <li><a href="#roast" data-i18n="nav.roast">焙煎</a></li>
+        <li><a href="#food" data-i18n="nav.food">フード</a></li>
+        <li><a href="#drink" data-i18n="nav.drink">ドリンク</a></li>
+        <li><a href="#visit" data-i18n="nav.visit">ご案内</a></li>
+      </ul>
+    </nav>
+
+    <div class="hdr-tools">
+      <div class="lang" id="lang">
+        <button class="lang-btn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Language">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+          <span class="lang-cur" id="langCur">日本語</span>
+          <svg class="ico ico-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9.5 12 15.5 18 9.5"/></svg>
+        </button>
+        <ul class="lang-menu" id="langMenu" role="menu"></ul>
+      </div>
+
+      <button class="burger" id="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <picture class="hero-media">
+    <source media="(max-width:767px)" srcset="assets/img/exterior.jpg">
+    <img src="assets/img/hero-exterior.jpg" width="1800" height="1013" alt="馬町珈琲の外観" data-i18n-alt="hero" fetchpriority="high" decoding="async">
+  </picture>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="hero-body">
+    <div class="container">
+      <p class="hero-mark">UMAMACHI COFFEE</p>
+      <h1 class="hero-title" data-i18n="hero.tagline">一杯ずつ、ていねいに。</h1>
+      <p class="hero-sub" data-i18n="hero.sub">京都・五条の自家焙煎珈琲店</p>
+    </div>
+  </div>
+  <a class="hero-scroll" href="#about">
+    <span class="hero-scroll-label" data-i18n="hero.scroll">SCROLL</span>
+    <span class="hero-scroll-line" aria-hidden="true"></span>
+  </a>
+</section>
+
+<main>
+<!-- ================= ABOUT ================= -->
+<section class="sec" id="about">
+  <div class="container split">
+    <div class="split-text reveal">
+      <p class="eyebrow" data-i18n="about.eyebrow">ようこそ</p>
+      <h2 class="h2" data-i18n="about.title">京都の街かどで。</h2>
+      <p class="lead" data-i18n="about.body1"></p>
+      <p data-i18n="about.body2"></p>
+    </div>
+    <div class="split-media split-media-2 reveal">
+      <figure class="ph ph-34">
+        <img src="assets/img/interior-deep.jpg" width="1600" height="2133" alt="店内奥のカウンターとショーケース" data-i18n-alt="interiorDeep" loading="lazy" decoding="async">
+      </figure>
+      <figure class="ph ph-11 ph-offset">
+        <img src="assets/img/poster-wall.jpg" width="1200" height="1200" alt="店内の壁に飾られた馬のポスター" data-i18n-alt="posterWall" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COFFEE ================= -->
+<section class="sec sec-alt sec-feature" id="coffee">
+  <div class="feature feature-media-left">
+    <figure class="feature-media fm-iced reveal">
+      <img src="assets/img/iced-coffee.jpg" width="1108" height="1477" alt="ロゴステッカーの入ったアイスコーヒー" data-i18n-alt="iced" loading="lazy" decoding="async">
+    </figure>
+    <div class="feature-text reveal">
+      <p class="eyebrow" data-i18n="coffee.eyebrow">珈琲</p>
+      <h2 class="h2" data-i18n="coffee.title">一杯ずつ、手で淹れる。</h2>
+      <p data-i18n="coffee.body"></p>
+    </div>
+  </div>
+
+  <div class="container sub">
+    <div class="sub-media reveal">
+      <figure class="ph ph-11">
+        <img src="assets/img/latte-cookie.jpg" width="1108" height="1477" alt="カフェラテののったトレイ" data-i18n-alt="latteCookie" loading="lazy" decoding="async">
+      </figure>
+    </div>
+    <div class="sub-text reveal">
+      <h3 class="h3 h3-rule" data-i18n="beans.title">生豆へのこだわり</h3>
+      <p data-i18n="beans.body"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROAST ================= -->
+<section class="sec sec-feature" id="roast">
+  <div class="feature feature-media-right">
+    <figure class="feature-media fm-roaster reveal">
+      <img src="assets/img/roaster.jpg" width="1400" height="1867" alt="焙煎機とコーヒー豆" data-i18n-alt="roaster" loading="lazy" decoding="async">
+    </figure>
+    <div class="feature-text reveal">
+      <p class="eyebrow" data-i18n="roast.eyebrow">焙煎</p>
+      <h2 class="h2" data-i18n="roast.title"></h2>
+      <p data-i18n="roast.body1"></p>
+      <p data-i18n="roast.body2"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BAND 1 ================= -->
+<div class="band band-1">
+  <img src="assets/img/band-interior.jpg" width="1600" height="1000" alt="木の梁とカウンターのある店内" data-i18n-alt="band" loading="lazy" decoding="async">
+</div>
+
+<!-- ================= FOOD ================= -->
+<section class="sec sec-alt" id="food">
+  <div class="container">
+    <header class="sec-head reveal">
+      <p class="eyebrow" data-i18n="food.eyebrow">フード</p>
+      <h2 class="h2" data-i18n="food.title"></h2>
+      <p class="note" data-i18n="food.note"></p>
+    </header>
+    <div class="food-feature" id="foodFeature"></div>
+    <div class="food-cols">
+      <ul class="mlist food-list" id="foodList"></ul>
+      <ul class="mlist food-list" id="foodList2"></ul>
+    </div>
+    <p class="note note-sm tax-note" data-i18n="price.tax"></p>
+  </div>
+</section>
+
+<!-- ================= SWEETS ================= -->
+<section class="sec" id="sweets">
+  <div class="container split">
+    <div class="split-text reveal">
+      <p class="eyebrow" data-i18n="sweets.eyebrow">スイーツ</p>
+      <h2 class="h2" data-i18n="sweets.title"></h2>
+      <p data-i18n="sweets.body"></p>
+    </div>
+    <div class="split-media reveal">
+      <figure class="ph ph-11">
+        <img src="assets/img/sweets-case.jpg" width="1280" height="1280" alt="ショーケースに並ぶスイーツ" data-i18n-alt="sweets" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BAND 2 ================= -->
+<div class="band band-2">
+  <img src="assets/img/interior-seats.jpg" width="1600" height="2133" alt="色とりどりの椅子が並ぶ客席" data-i18n-alt="interiorSeats" loading="lazy" decoding="async">
+</div>
+
+<!-- ================= DRINK ================= -->
+<section class="sec sec-alt" id="drink">
+  <div class="container">
+    <header class="sec-head sec-head-c reveal">
+      <p class="eyebrow" data-i18n="drink.eyebrow">ドリンク</p>
+      <h2 class="h2" data-i18n="drink.title">メニュー</h2>
+    </header>
+    <div class="menu-cols">
+      <div class="menu-col menu-col-a reveal">
+        <h3 class="menu-h" data-i18n="drink.coffee">自社焙煎コーヒー</h3>
+        <ul class="mlist" id="coffeeList"></ul>
+        <p class="note note-sm" data-i18n="drink.milk_note"></p>
+      </div>
+      <div class="menu-col menu-col-b reveal">
+        <h3 class="menu-h" data-i18n="drink.other">その他のドリンク</h3>
+        <ul class="mlist" id="bevList"></ul>
+      </div>
+    </div>
+    <p class="note note-sm tax-note" data-i18n="price.tax"></p>
+  </div>
+</section>
+
+<!-- ================= VIDEO ================= -->
+<section class="sec sec-video" id="video">
+  <div class="container">
+    <header class="sec-head sec-head-c reveal">
+      <h2 class="h2" data-i18n="video.title">お店の様子</h2>
+      <p class="note" data-i18n="video.body"></p>
+    </header>
+    <div class="video-frame reveal">
+      <video id="reel" poster="assets/img/reel-poster.jpg" preload="none" playsinline controls width="1080" height="1920">
+        <source src="assets/video/umamachi-reel.mp4" type="video/mp4">
+      </video>
+      <button class="video-play" id="videoPlay" type="button">
+        <svg class="ico-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.2v13.6L19 12z"/></svg>
+        <span data-i18n="video.play">再生する</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INSTAGRAM ================= -->
+<section class="sec sec-ig" id="instagram">
+  <div class="container">
+    <div class="ig-in reveal">
+      <h2 class="h2 ig-h" data-i18n="ig.title">Instagram</h2>
+      <p class="note ig-note" data-i18n="ig.body"></p>
+
+      <!-- Instagram 埋め込みの貼り付け位置：投稿ページの「…」→「埋め込み」でコピーしたコードを、下の div#ig-embed の中にそのまま貼り付けてください。 -->
+      <div class="ig-embed" id="ig-embed"></div>
+
+      <p class="ig-cta"><span class="btn btn-ghost" id="igCta" data-i18n="ig.cta">Instagram を見る</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VISIT ================= -->
+<section class="sec sec-alt" id="visit">
+  <div class="container split split-rev">
+    <div class="split-text reveal">
+      <p class="eyebrow" data-i18n="visit.eyebrow">ご案内</p>
+      <h2 class="h2" data-i18n="visit.title">アクセス・営業時間</h2>
+      <dl class="facts">
+        <div class="fact">
+          <dt data-i18n="visit.address_label">住所</dt>
+          <dd data-i18n="visit.address"></dd>
+        </div>
+        <div class="fact">
+          <dt data-i18n="visit.tel_label">電話</dt>
+          <dd><a class="tel" href="tel:+81757418779">075-741-8779</a></dd>
+        </div>
+        <div class="fact">
+          <dt data-i18n="visit.hours_label">営業時間</dt>
+          <dd data-i18n="visit.hours"></dd>
+        </div>
+        <div class="fact">
+          <dt data-i18n="visit.closed_label">定休日</dt>
+          <dd data-i18n="visit.closed"></dd>
+        </div>
+        <div class="fact">
+          <dt data-i18n="visit.access_label">アクセス</dt>
+          <dd data-i18n="visit.access"></dd>
+        </div>
+      </dl>
+      <p class="visit-cta"><a class="btn" id="mapLink" href="https://www.google.com/maps" target="_blank" rel="noopener" data-i18n="visit.map">地図を開く</a></p>
+    </div>
+    <div class="split-media reveal">
+      <figure class="ph ph-34">
+        <img src="assets/img/exterior.jpg" width="1200" height="1600" alt="馬町珈琲の外観" data-i18n-alt="exterior" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="ftr">
+  <div class="container ftr-in">
+    <img class="ftr-logo" src="assets/img/logo-mark.png" width="162" height="223" alt="馬町珈琲 UMAMACHI COFFEE" data-i18n-alt="logo" loading="lazy">
+    <p class="ftr-name">UMAMACHI COFFEE</p>
+    <p class="ftr-company" data-i18n="footer.company">運営：株式会社緑歩園</p>
+    <p class="ftr-copy">&copy; <span id="year">2026</span> UMAMACHI COFFEE. <span data-i18n="footer.rights">All rights reserved.</span></p>
+  </div>
+</footer>
+
+<script src="assets/content.js"></script>
+<script src="assets/main.js"></script>
+</body>
+</html>
