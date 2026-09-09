@@ -296,6 +296,9 @@ span.btn-ghost:hover { background: transparent; color: var(--ink-soft); border-c
   margin: 0 0 16px; max-width: none;
   font-size: 11.5px; letter-spacing: .36em; color: rgba(255, 255, 255, .85);
 }
+/* ヒーロー見出しは変更前どおり明朝／セリフを基本にする。
+   Cormorant Garamond の品を欧文で失うため、全言語をゴシックに揃えるのは取りやめ。
+   多言語組版の通例どおり、文字体系ごとに書体を当てる。 */
 .hero-title {
   font-family: var(--serif); color: #fff;
   word-break: auto-phrase;
@@ -304,6 +307,16 @@ span.btn-ghost:hover { background: transparent; color: var(--ink-soft); border-c
   text-shadow: 0 1px 26px rgba(20, 14, 10, .35);
 }
 html[lang="en"] .hero-title, html[lang="es"] .hero-title { letter-spacing: .01em; }
+/* 日本語のみヘッダーの店名（馬町珈琲＝Yusei Magic）と同じ書体で受ける。
+   Yusei Magic は字面が大きく線も太いので、明朝より一段小さくし、
+   字間と行間を広げて締める。text-wrap: balance は 375px で
+   「ひと／休み。」と割れるのを防ぐため日本語にのみ効かせる。 */
+html[lang="ja"] .hero-title {
+  font-family: "Yusei Magic", var(--sans-cjk);
+  text-wrap: balance;
+  font-size: clamp(27px, 4.6vw, 58px); line-height: 1.36; letter-spacing: .06em;
+  max-width: 15em;
+}
 .hero-sub {
   margin: 18px 0 0; max-width: 28em;
   font-size: clamp(13.5px, 1.4vw, 16px); letter-spacing: .1em;
