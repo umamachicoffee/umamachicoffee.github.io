@@ -32,9 +32,11 @@
       es: 'El local visto desde la calle'
     },
     band: {
-      ja: '木の梁とカウンターのある店内', en: 'The room, with wooden beams and the counter',
-      zh: '有木梁与吧台的店内', ko: '나무 들보와 카운터가 있는 매장 내부',
-      es: 'La sala, con vigas de madera y la barra'
+      ja: '白い壁にイラストのポスターを飾ったテーブル席',
+      en: 'Tables and black chairs below an illustrated poster on the white wall',
+      zh: '白墙上挂着插画海报的桌位区',
+      ko: '흰 벽에 일러스트 포스터가 걸린 테이블석',
+      es: 'Mesas y sillas negras bajo un cartel ilustrado en la pared blanca'
     },
     interiorDeep: {
       ja: '店内奥のカウンターとショーケース', en: 'The counter and display case at the back of the room',
@@ -51,6 +53,27 @@
       zh: '印有烘豆机与咖啡豆的海报', ko: '로스터와 커피 원두가 담긴 포스터',
       es: 'Un cartel con la tostadora y los granos de café'
     },
+    sandwichOmelette: {
+      ja: '木の丸皿にのせた厚焼き玉子とハムのサンドイッチと、彩り野菜のピクルス',
+      en: 'A thick omelette and ham sandwich on a round wooden plate, with pickled vegetables',
+      zh: '木质圆盘上的厚蛋烧火腿三明治，配彩色蔬菜腌菜',
+      ko: '나무 원형 접시에 담긴 두툼한 계란과 햄 샌드위치, 그리고 채소 피클',
+      es: 'Un sándwich de tortilla gruesa y jamón en un plato redondo de madera, con encurtidos de verduras'
+    },
+    sandwichTeriyaki: {
+      ja: '木の丸皿にのせた、照り焼きチキンとレタス・トマトを厚切りトーストで挟んだサンドイッチ２切れと、彩り野菜のピクルス',
+      en: 'Two halves of a teriyaki chicken sandwich with lettuce and tomato on thick toast, on a round wooden plate, with pickled vegetables behind',
+      zh: '木质圆盘上的照烧鸡肉三明治两块，夹有生菜与番茄，后方是彩色蔬菜腌菜',
+      ko: '나무 원형 접시에 담긴, 데리야키 치킨과 양상추·토마토를 두툼한 토스트로 만든 샌드위치 두 조각과 채소 피클',
+      es: 'Dos mitades de un sándwich de pollo teriyaki con lechuga y tomate en pan tostado grueso, en un plato redondo de madera, con encurtidos al fondo'
+    },
+    sandwichHamegg: {
+      ja: '白い角皿にのせた、ハムと厚焼き玉子・レタスをトーストで挟んだサンドイッチ２切れと、彩り野菜のピクルスと黄色い小旗',
+      en: 'Two halves of a ham, thick omelette and lettuce sandwich on toast, on a white square plate, with pickled vegetables and a small yellow flag behind',
+      zh: '白色方盘上的火腿厚蛋烧生菜三明治两块，后方是彩色蔬菜腌菜与黄色小旗',
+      ko: '흰 사각 접시에 담긴, 햄과 두툼한 계란말이·양상추를 토스트로 만든 샌드위치 두 조각과 채소 피클, 노란 작은 깃발',
+      es: 'Dos mitades de un sándwich de jamón, tortilla gruesa y lechuga en pan tostado, en un plato blanco cuadrado, con encurtidos y una banderita amarilla al fondo'
+    },
     sweets: {
       ja: 'ショーケースに並ぶスイーツ', en: 'Sweets lined up in the display case',
       zh: '展示柜中排列的甜点', ko: '쇼케이스에 진열된 디저트',
@@ -61,10 +84,12 @@
       zh: '贴有品牌贴纸的冰咖啡', ko: '로고 스티커가 붙은 아이스 커피',
       es: 'Un café frío en un vaso con la pegatina del logotipo'
     },
-    latteCookie: {
-      ja: 'トレイにのせたカフェラテ', en: 'A caffe latte served on a tray',
-      zh: '放在托盘上的拿铁', ko: '트레이에 담긴 카페 라테',
-      es: 'Un café con leche servido en una bandeja'
+    coffeeLatte: {
+      ja: '木のカウンターに置いた、ハート型のラテアートを描いた白いカップのカフェラテ',
+      en: 'A caffe latte with heart latte art, in a white cup on the wooden counter',
+      zh: '放在木质吧台上的白色杯子拿铁，拉花为心形',
+      ko: '나무 카운터에 놓인, 하트 라떼아트가 그려진 흰 잔의 카페 라떼',
+      es: 'Un café con leche con arte laté en forma de corazón, en taza blanca sobre la barra de madera'
     },
     teaLatte: {
       ja: 'グラスに注いだティーラテ', en: 'A tea latte in a glass',
@@ -76,6 +101,14 @@
       zh: '店内墙上的马匹海报', ko: '매장 벽에 걸린 말 포스터',
       es: 'El cartel del caballo en la pared del local'
     }
+  };
+
+  /* 料理写真のうち、皿や付け合わせまで写っているものは説明文の alt を使う。
+     指定のないものは品名をそのまま alt にする（従来どおり）。 */
+  var FOOD_ALT = {
+    'sandwich-omelette.jpg': 'sandwichOmelette',
+    'sandwich-teriyaki.jpg': 'sandwichTeriyaki',
+    'sandwich-hamegg.jpg': 'sandwichHamegg'
   };
 
   /* ---------- 言語の決定 ---------- */
@@ -135,6 +168,13 @@
     list.textContent = '';
     if (list2) list2.textContent = '';
 
+    /* 写真ありの品は2段組のカード。枚数が奇数だと最後の1枚が段に取り残されるので、
+       先頭（＝いちばん高い品）を写真と本文の横並びにして全幅で置き、
+       残りをちょうど2枚ずつの段にする。列の切れ目は下のリストと同じ位置。 */
+    var shot = S.food.filter(function (it) { return it.img; }).length;
+    var lead = (shot % 2 === 1);
+    var shotSeen = 0;
+
     /* 写真なしの品は2段組に振り分ける（左段が多くなるように前詰め） */
     var plain = S.food.filter(function (it) { return !it.img; }).length;
     var leftCount = Math.ceil(plain / 2);
@@ -147,20 +187,24 @@
       var side = item.side ? T('food.' + item.side) : '';
 
       if (item.img) {
-        var card = el('article', 'food-card');
+        var card = el('article', 'food-card' + (lead && shotSeen === 0 ? ' food-card-lead' : ''));
         var fig = el('figure', 'ph ph-43');
-        fig.appendChild(img(item.img, 1200, 900, null, name));
+        var altKey = FOOD_ALT[item.img];
+        fig.appendChild(img(item.img, 1200, 900, null, altKey ? alt(altKey) : name));
         card.appendChild(fig);
 
+        var body = el('div', 'food-body');
         var head = el('div', 'food-head');
         head.appendChild(el('h3', 'food-name', name));
         head.appendChild(el('span', 'm-price', yen(item.price)));
-        card.appendChild(head);
+        body.appendChild(head);
 
-        if (tag) card.appendChild(el('p', 'food-tag', tag));
-        if (desc) card.appendChild(el('p', 'food-desc', desc));
-        if (side) card.appendChild(el('p', 'food-side', side));
+        if (tag) body.appendChild(el('p', 'food-tag', tag));
+        if (desc) body.appendChild(el('p', 'food-desc', desc));
+        if (side) body.appendChild(el('p', 'food-side', side));
+        card.appendChild(body);
         feature.appendChild(card);
+        shotSeen++;
       } else {
         var row = el('li', 'mrow');
         var nm = el('div', 'm-name');

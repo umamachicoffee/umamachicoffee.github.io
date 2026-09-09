@@ -180,14 +180,14 @@ span.btn-ghost:hover { background: transparent; color: var(--ink-soft); border-c
 }
 /* ブランド表示：ロゴ画像（濃灰の版）はヘッダー幅では文字が潰れるため、
    ヘッダーは同じ組みを文字で再現する。ロゴ画像はフッターで大きく見せる。
-   店名は言語が変わっても同じ字形で出す（日本語明朝を明示指定）。 */
+   店名は言語が変わっても同じ字形で出す（日本語書体 Yusei Magic を明示指定）。 */
 .brand {
   display: inline-flex; flex-direction: column; justify-content: center; gap: 5px;
   text-decoration: none; line-height: 1; white-space: nowrap;
 }
 .brand-jp {
-  font-family: "Shippori Mincho B1", "Yu Mincho", "游明朝", YuMincho, "Hiragino Mincho ProN", serif;
-  font-size: 19px; letter-spacing: .16em;
+  font-family: "Yusei Magic", "Zen Kaku Gothic New", "Yu Gothic", "游ゴシック体", YuGothic, "Hiragino Kaku Gothic ProN", sans-serif;
+  font-size: 20px; letter-spacing: .14em;
 }
 .brand-en { font-size: 8.5px; letter-spacing: .26em; opacity: .74; }
 
@@ -268,7 +268,6 @@ span.btn-ghost:hover { background: transparent; color: var(--ink-soft); border-c
 }
 @media (min-width: 1024px) {
   .hdr-in { gap: 28px; }
-  .brand-jp { font-size: 21px; }
   .brand-en { font-size: 9px; }
 }
 
@@ -396,6 +395,8 @@ html[lang="en"] .hero-title, html[lang="es"] .hero-title { letter-spacing: .01em
 /* feature の下に置く従属ブロック */
 .sub { display: grid; gap: clamp(26px, 4vw, 40px); margin-top: clamp(60px, 8vw, 108px); }
 .sub-media .ph { width: 100%; max-width: 340px; }
+/* ここの写真は正方形（502×502）で枠も 1:1。切り抜きが起きないため object-position は指定しない。
+   縦横比の違う写真に差し替えるときはここで位置を指定する。 */
 @media (min-width: 900px) {
   /* 写真とテキストの下端をそろえる（中央そろえだと文章量の差がそのまま下の空きになる） */
   .sub { grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: clamp(40px, 5vw, 64px); align-items: end; }
@@ -411,14 +412,27 @@ html[lang="en"] .hero-title, html[lang="es"] .hero-title { letter-spacing: .01em
   position: absolute; left: 0; top: -8%;
   width: 100%; height: 116%; object-fit: cover;
 }
-.band-1 img { object-position: 50% 52%; }
+.band-1 img { object-position: 50% 45%; }
 .band-2 img { object-position: 50% 86%; }
 
 /* ---------- food ---------- */
 .food-feature { display: grid; gap: clamp(32px, 4vw, 48px); }
 .food-card { min-width: 0; }
-@media (min-width: 768px) { .food-feature { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
 .food-card .ph { margin-bottom: 22px; }
+/* ハムエッグのだけ縦位置の写真（480×640）。
+   4:3 の枠に入れると上下が大きく切れるので、サンドと小旗が収まる位置まで下げる。 */
+.food-card img[src$="sandwich-hamegg.jpg"] { object-position: 50% 62%; }
+@media (min-width: 768px) {
+  .food-feature { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  /* 写真が奇数枚のときの先頭の品は、全幅で写真＝左段／本文＝右段の横組みにする。
+     列の切れ目は下のカードとリストと同じ位置に置き、section 全体に同じ縦線を通す。 */
+  .food-card-lead {
+    grid-column: 1 / -1;
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: clamp(32px, 4vw, 48px); align-items: center;
+  }
+  .food-card-lead .ph { margin-bottom: 0; }
+}
 .food-head {
   display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
   border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 12px;
@@ -434,6 +448,9 @@ html[lang="en"] .hero-title, html[lang="es"] .hero-title { letter-spacing: .01em
 .food-cols { display: grid; gap: 0 clamp(32px, 4vw, 48px); margin-top: clamp(40px, 5vw, 64px); }
 .food-list { border-top: 1px solid var(--line); }
 .food-list:empty { display: none; }
+/* 全品に写真が付いたときは行が1つもない。
+   空の器の margin だけが残って注記が離れるのを防ぐ（行が戻れば自動で復活）。 */
+.food-cols:not(:has(.mrow)) { display: none; }
 @media (min-width: 768px) {
   .food-cols { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
 }

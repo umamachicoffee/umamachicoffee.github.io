@@ -40,7 +40,7 @@ window.SITE = {
               ko: '패티, 프라이드 에그, 양파, 토마토, 양상추, 그레이비 소스.',
               es: 'Carne, huevo frito, cebolla, tomate, lechuga y salsa gravy.' } },
 
-    { img: null, price: '980', side: 'pickles',
+    { img: 'sandwich-teriyaki.jpg', price: '980', side: 'pickles',
       name: { ja: '照り焼きチキンのサンドイッチ', en: 'Teriyaki Chicken Sandwich', zh: '照烧鸡肉三明治', ko: '데리야키 치킨 샌드위치', es: 'Sándwich de pollo teriyaki' },
       tag: null,
       desc: { ja: '照り焼きチキン、エッグタルタルソース、レタス、トマト、レッドオニオン。',
@@ -49,7 +49,7 @@ window.SITE = {
               ko: '데리야키 치킨, 에그 타르타르 소스, 양상추, 토마토, 적양파.',
               es: 'Pollo teriyaki, salsa tártara de huevo, lechuga, tomate y cebolla morada.' } },
 
-    { img: null, price: '880', side: 'pickles',
+    { img: 'sandwich-omelette.jpg', price: '880', side: 'pickles',
       name: { ja: 'オムレツサンドイッチ', en: 'Omelette Sandwich', zh: '厚蛋烧三明治', ko: '오믈렛 샌드위치', es: 'Sándwich de tortilla' },
       tag: null,
       desc: { ja: 'ふんわりオムレツ、エッグタルタルソース、マスタードマヨ。',
@@ -58,7 +58,7 @@ window.SITE = {
               ko: '부드러운 오믈렛, 에그 타르타르 소스, 머스터드 마요.',
               es: 'Tortilla esponjosa, salsa tártara de huevo y mayonesa a la mostaza.' } },
 
-    { img: null, price: '780', side: 'pickles',
+    { img: 'sandwich-hamegg.jpg', price: '780', side: 'pickles',
       name: { ja: 'ハムエッグサンドイッチ', en: 'Ham and Egg Sandwich', zh: '火腿鸡蛋三明治', ko: '햄에그 샌드위치', es: 'Sándwich de jamón y huevo' },
       tag: null,
       desc: { ja: 'ダブルハム、エッグタルタルソース、レタス、トマト、レッドオニオン。',
