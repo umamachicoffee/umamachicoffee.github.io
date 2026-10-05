@@ -1,0 +1,77 @@
+# 馬町珈琲 Instagram 自動投稿（毎日 日本時間 9:00ごろ）
+# - 定時実行は、リポジトリ変数 IG_AUTOPOST_ENABLED が 'true' のときだけ動きます（それ以外は何もせず終了）。
+# - 手動実行（Run workflow）では dry_run（投稿せず確認だけ）が最初からオンになっています。
+# - GitHub の定時実行は混雑で数時間遅れることがあります。遅れても手動実行はしないでください（二重投稿の原因）。
+name: Instagram auto post
+
+on:
+  schedule:
+    - cron: "0 0 * * *"          # UTC 0:00 = 日本時間 9:00
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "確認だけ（投稿しない）"
+        type: boolean
+        default: true
+      force:
+        description: "今日すでに投稿済みでも投稿する（通常はオフ）"
+        type: boolean
+        default: false
+      only:
+        description: "投稿する種類"
+        type: choice
+        default: all
+        options: [all, feed, story, reel]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram-autopost
+  cancel-in-progress: false
+
+jobs:
+  post:
+    # 定時実行は IG_AUTOPOST_ENABLED == 'true' のときだけ。手動実行はいつでも可。
+    if: github.event_name == 'workflow_dispatch' || vars.IG_AUTOPOST_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install
+        run: pip install -r instagram/autopost/requirements.txt
+
+      - name: Post to Instagram
+        id: post
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_AUTOPOST_ENABLED: ${{ vars.IG_AUTOPOST_ENABLED }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && 'true' || 'false' }}
+          FORCE: ${{ github.event_name == 'workflow_dispatch' && inputs.force && 'true' || 'false' }}
+          ONLY: ${{ inputs.only || 'all' }}
+        run: python instagram/autopost/post_instagram.py
+
+      # 投稿の結果（state.json / post_log.txt）を保存。失敗した場合もログを残すため always()。ドライランでは保存しない。
+      - name: Save state and log
+        if: always() && !(github.event_name == 'workflow_dispatch' && inputs.dry_run)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add instagram/autopost/state.json instagram/autopost/post_log.txt
+          if git diff --cached --quiet; then
+            echo "変更なし"
+            exit 0
+          fi
+          git commit -m "instagram: update state and log"
+          for i in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep 5
+          done
+          echo "push に失敗しました" >&2
+          exit 1
