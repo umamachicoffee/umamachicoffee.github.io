@@ -1,0 +1,62 @@
+# 文字入れ画像を作り直す（手動実行のみ）。Python のインストールは不要です。
+# 1) instagram/photos/ に写真を追加、instagram/autopost/content.py に項目を追加
+# 2) Actions → 「Instagram generate overlays」→ Run workflow
+# 3) 終わったら、実行結果ページの Artifacts「preview」で一覧画像を確認
+# ※ この実行では投稿しません（作った画像が公開URLに反映されるまで数分かかるため、投稿は翌日以降の定時実行で）。
+name: Instagram generate overlays
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram-autopost
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install
+        run: pip install -r instagram/autopost/requirements-dev.txt
+
+      - name: Generate overlay images
+        run: |
+          python instagram/autopost/generate_overlays.py \
+            --contact-sheet preview/preview_feed.jpg \
+            --story-contact-sheet preview/preview_stories.jpg
+        # ↑ 文字が長すぎて入らないときは、ここでエラーになります（content.py の文字を短くしてください）
+
+      - name: Check (tests, no Instagram access)
+        run: python -m pytest -q instagram/autopost/tests
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: preview
+          path: preview/
+
+      - name: Commit generated images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add instagram/generated
+          if git diff --cached --quiet; then
+            echo "画像に変更はありません"
+            exit 0
+          fi
+          git commit -m "instagram: regenerate overlay images"
+          for i in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep 5
+          done
+          echo "push に失敗しました" >&2
+          exit 1
