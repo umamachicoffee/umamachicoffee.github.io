@@ -1,5 +1,20 @@
 {
-  "feed": {"last_index": -1, "last_posted_date": null, "last_media_id": null, "last_id": null},
-  "story": {"last_index": -1, "last_posted_date": null, "last_media_id": null, "last_id": null},
-  "reel": {"last_index": -1, "last_posted_date": null, "last_media_id": null, "last_id": null}
+  "feed": {
+    "last_index": 0,
+    "last_posted_date": "2026-10-05",
+    "last_media_id": "18195933580385887",
+    "last_id": "f01-blend"
+  },
+  "story": {
+    "last_index": 0,
+    "last_posted_date": "2026-10-05",
+    "last_media_id": "18101070023218015",
+    "last_id": "s01-hours"
+  },
+  "reel": {
+    "last_index": -1,
+    "last_posted_date": null,
+    "last_media_id": null,
+    "last_id": null
+  }
 }
