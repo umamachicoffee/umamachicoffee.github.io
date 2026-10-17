@@ -7,3 +7,5 @@
 2026-10-15 13:00:13 JST [OK] story #2 s03-kyoto-moon-burger media_id=18153857527533270
 2026-10-16 12:57:29 JST [OK] feed #3 f04-roasting media_id=17896336752415995
 2026-10-16 12:57:40 JST [OK] story #3 s04-interior media_id=17908043625331761
+2026-10-17 12:47:28 JST [OK] feed #4 f05-visit media_id=18096000890409482
+2026-10-17 12:47:37 JST [OK] story #4 s05-espresso media_id=17948204073341233
