@@ -9,3 +9,5 @@
 2026-10-16 12:57:40 JST [OK] story #3 s04-interior media_id=17908043625331761
 2026-10-17 12:47:28 JST [OK] feed #4 f05-visit media_id=18096000890409482
 2026-10-17 12:47:37 JST [OK] story #4 s05-espresso media_id=17948204073341233
+2026-10-18 12:53:34 JST [OK] feed #5 f06-takeout media_id=18136781425656907
+2026-10-18 12:53:44 JST [OK] story #5 s06-takeout media_id=17916420009465848
