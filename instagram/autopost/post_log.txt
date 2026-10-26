@@ -25,3 +25,5 @@
 2026-10-24 13:00:47 JST [OK] story #2 s03-kyoto-moon-burger media_id=18002906528809106
 2026-10-25 13:01:28 JST [OK] feed #12 f13-autumn-walk media_id=17879535129632996
 2026-10-25 13:01:39 JST [OK] story #3 s04-interior media_id=18088894313292245
+2026-10-26 13:05:57 JST [OK] feed #13 f14-cafe-latte media_id=18100144727079021
+2026-10-26 13:06:10 JST [OK] story #4 s05-espresso media_id=18168701947474545
