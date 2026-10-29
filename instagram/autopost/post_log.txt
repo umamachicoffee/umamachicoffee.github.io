@@ -31,3 +31,5 @@
 2026-10-27 13:25:59 JST [OK] story #5 s06-takeout media_id=18013993598761284
 2026-10-28 13:56:59 JST [OK] feed #1 f02-kyoto-moon-burger media_id=18648148069008678
 2026-10-28 13:57:09 JST [OK] story #6 s07-roasting media_id=17959273950018383
+2026-10-29 14:08:22 JST [OK] feed #2 f03-interior media_id=18028303979858088
+2026-10-29 14:08:32 JST [OK] story #7 s08-access media_id=18072467204495969
