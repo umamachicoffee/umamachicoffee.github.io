@@ -71,16 +71,12 @@ FEED = [
         headline="京都ムーンバーガー", info="¥1,000（税込）", subline="Kyoto Moon Burger",
         caption=cap(
             """
-            ※10月30日（金）は臨時休業です。ご了承ください。
-
             目玉焼きをのせた「京都ムーンバーガー」。
             珈琲と一緒に、しっかり食べたい日にどうぞ。
 
             京都ムーンバーガー ¥1,000（税込）
             """,
             """
-            Note: We will be closed on Friday, October 30. Thank you for your understanding.
-
             Our Kyoto Moon Burger, topped with a fried egg.
             For days when you want a proper meal with your coffee.
 
@@ -97,15 +93,11 @@ FEED = [
         headline="奥まで、ゆっくり。", info="", subline="Take your time inside",
         caption=cap(
             """
-            ※10月30日（金）は臨時休業です。ご了承ください。
-
             入口から奥へと続く、木の柱とコンクリートの床の店内。
             おひとりでも、どなたかとご一緒でも。
             珈琲を片手に、ゆっくりお過ごしください。
             """,
             """
-            Note: We will be closed on Friday, October 30. Thank you for your understanding.
-
             Wooden pillars and a concrete floor, stretching back from the entrance.
             Whether you come alone or with someone,
             please take your time over a cup of coffee.
@@ -382,12 +374,10 @@ STORIES = [
          headline="エスプレッソ", info="¥400（税込）", subline="Espresso, from our house blend beans"),
     dict(id="s06-takeout", photo="iced-coffee.jpg", crop=None, focus=(0.5, 0.5), layout="photo", position="top",
          headline="テイクアウトもできます", info="", subline="Takeout available"),
-    # 一時: 10/30臨時休業告知。10/29投稿後に元へ戻す
     dict(id="s07-roasting", photo="roaster-poster.jpg", crop=(0.0, 0.04, 1.0, 0.66), focus=(0.85, 0.5), layout="photo", position="bottom",
-         headline="10/30（金）は臨時休業です", info="ご了承ください", subline="Closed Friday, Oct 30"),
-    # 一時: 10/30臨時休業告知。10/29投稿後に元へ戻す
+         headline="自家焙煎の珈琲", info="焙煎機はオランダ製 GIESEN", subline="House-roasted on a Dutch GIESEN roaster"),
     dict(id="s08-access", photo="exterior.jpg", crop=None, focus=(0.5, 0.5), layout="photo", position="bottom",
-         headline="10/30（金）は臨時休業です", info="ご了承ください", subline="Closed Friday, Oct 30"),
+         headline="京都市東山区常盤町459-13", info="TEL 075-741-8779", subline="459-13 Tokiwacho, Higashiyama-ku, Kyoto"),
     # 一杯の写真＋「一杯 ¥580」（豆の価格と混同しないように）
     dict(id="s09-blend", photo="cup-blend.jpg", crop=None, focus=(0.5, 0.5), layout="photo", position="bottom",
          headline="馬町ブレンド", info="一杯 ¥580（税込）", subline="Umamachi Blend — ¥580 per cup"),
