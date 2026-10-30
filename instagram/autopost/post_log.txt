@@ -33,3 +33,5 @@
 2026-10-28 13:57:09 JST [OK] story #6 s07-roasting media_id=17959273950018383
 2026-10-29 14:08:22 JST [OK] feed #2 f03-interior media_id=18028303979858088
 2026-10-29 14:08:32 JST [OK] story #7 s08-access media_id=18072467204495969
+2026-10-30 14:07:44 JST [OK] feed #3 f04-roasting media_id=18126507100926816
+2026-10-30 14:07:53 JST [OK] story #8 s09-blend media_id=17979410451135945
