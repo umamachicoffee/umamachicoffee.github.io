@@ -49,3 +49,5 @@
 2026-11-05 14:57:08 JST [OK] story #5 s06-takeout media_id=17956882011276894
 2026-11-06 14:53:32 JST [OK] feed #10 f11-umamachi-burger media_id=18136806946656450
 2026-11-06 14:53:41 JST [OK] story #6 s07-roasting media_id=18102812942530520
+2026-11-07 14:25:09 JST [OK] feed #11 f12-hours media_id=18042945488837780
+2026-11-07 14:25:19 JST [OK] story #7 s08-access media_id=17912934117306526
