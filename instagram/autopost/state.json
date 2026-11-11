@@ -1,15 +1,15 @@
 {
   "feed": {
-    "last_index": 0,
-    "last_posted_date": "2026-11-10",
-    "last_media_id": "18038111306893700",
-    "last_id": "f01-blend"
+    "last_index": 1,
+    "last_posted_date": "2026-11-11",
+    "last_media_id": "18132066100888276",
+    "last_id": "f02-kyoto-moon-burger"
   },
   "story": {
-    "last_index": 1,
-    "last_posted_date": "2026-11-10",
-    "last_media_id": "17882586558546887",
-    "last_id": "s02-beans"
+    "last_index": 2,
+    "last_posted_date": "2026-11-11",
+    "last_media_id": "18171494566491246",
+    "last_id": "s03-kyoto-moon-burger"
   },
   "reel": {
     "last_index": -1,
