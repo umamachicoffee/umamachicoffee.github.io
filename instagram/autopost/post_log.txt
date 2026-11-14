@@ -63,3 +63,5 @@
 2026-11-12 15:37:58 JST [OK] story #3 s04-interior media_id=18130823036490798
 2026-11-13 14:55:22 JST [OK] feed #3 f04-roasting media_id=18031127822874263
 2026-11-13 14:55:31 JST [OK] story #4 s05-espresso media_id=18109622525303587
+2026-11-14 14:44:08 JST [OK] feed #4 f05-visit media_id=17871529815662865
+2026-11-14 14:44:18 JST [OK] story #5 s06-takeout media_id=17913226383577067
