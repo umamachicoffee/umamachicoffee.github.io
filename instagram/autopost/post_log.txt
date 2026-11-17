@@ -69,3 +69,5 @@
 2026-11-15 14:44:06 JST [OK] story #6 s07-roasting media_id=18147892021588941
 2026-11-16 14:43:37 JST [OK] feed #6 f07-omelette-sandwich media_id=17885509722629561
 2026-11-16 14:43:46 JST [OK] story #7 s08-access media_id=18023710103730630
+2026-11-17 16:21:37 JST [OK] feed #7 f08-autumn-afternoon media_id=18146458987611209
+2026-11-17 16:21:47 JST [OK] story #8 s09-blend media_id=18128220260515807
