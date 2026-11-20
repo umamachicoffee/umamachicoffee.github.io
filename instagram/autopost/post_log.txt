@@ -75,3 +75,5 @@
 2026-11-18 15:46:35 JST [OK] story #0 s01-hours media_id=17990045079094406
 2026-11-19 15:47:11 JST [OK] feed #9 f10-espresso media_id=18123065974970203
 2026-11-19 15:47:20 JST [OK] story #1 s02-beans media_id=18143057608618215
+2026-11-20 15:35:45 JST [OK] feed #10 f11-umamachi-burger media_id=17999684208117325
+2026-11-20 15:35:52 JST [OK] story #2 s03-kyoto-moon-burger media_id=18130064053658291
