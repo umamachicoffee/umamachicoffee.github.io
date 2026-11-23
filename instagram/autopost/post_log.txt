@@ -81,3 +81,5 @@
 2026-11-21 15:28:10 JST [OK] story #3 s04-interior media_id=18081899645735962
 2026-11-22 14:57:03 JST [OK] feed #12 f13-autumn-walk media_id=18364097326221892
 2026-11-22 14:57:12 JST [OK] story #4 s05-espresso media_id=17905955523673107
+2026-11-23 15:48:18 JST [OK] feed #13 f14-cafe-latte media_id=17956665609292497
+2026-11-23 15:48:28 JST [OK] story #5 s06-takeout media_id=17926211640224094
