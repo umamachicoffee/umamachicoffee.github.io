@@ -85,3 +85,5 @@
 2026-11-23 15:48:28 JST [OK] story #5 s06-takeout media_id=17926211640224094
 2026-11-24 18:14:45 JST [OK] feed #0 f01-blend media_id=18149293120583072
 2026-11-24 18:14:57 JST [OK] story #6 s07-roasting media_id=18157334185483752
+2026-11-25 16:50:17 JST [OK] feed #1 f02-kyoto-moon-burger media_id=18099098030155272
+2026-11-25 16:50:25 JST [OK] story #7 s08-access media_id=18085512905711656
