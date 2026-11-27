@@ -89,3 +89,5 @@
 2026-11-25 16:50:25 JST [OK] story #7 s08-access media_id=18085512905711656
 2026-11-26 16:41:08 JST [OK] feed #2 f03-interior media_id=18182630131396252
 2026-11-26 16:41:17 JST [OK] story #8 s09-blend media_id=18137971183675104
+2026-11-27 16:39:47 JST [OK] feed #3 f04-roasting media_id=18111754792944847
+2026-11-27 16:39:54 JST [OK] story #0 s01-hours media_id=17977693593072236
