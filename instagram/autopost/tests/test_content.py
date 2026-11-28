@@ -39,6 +39,16 @@ def test_enough_feed_entries_and_unique_ids():
     assert all(re.fullmatch(r"[a-z0-9-]+", i) for i in ids)
 
 
+def test_until_format_is_month_day():
+    for e in content.FEED + content.STORIES + content.REELS:
+        until = e.get("until")
+        if not until:
+            continue
+        assert re.fullmatch(r"\d{1,2}-\d{1,2}", until), e["id"]
+        month, day = map(int, until.split("-"))
+        assert 1 <= month <= 12 and 1 <= day <= 31, e["id"]
+
+
 def test_omelette_sandwich_enabled_with_price():
     e = {e["id"]: e for e in content.FEED}["f07-omelette-sandwich"]
     assert e.get("enabled", True) is True and e["photo"] == "sandwich-omelette.jpg"

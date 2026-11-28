@@ -178,11 +178,14 @@ def test_rotation_continues_next_day_and_wraps(paths, no_reels):
     st = pi.default_state()
     st["feed"]["last_index"] = len(content.FEED) - 1        # 最後まで来た → 先頭へ
     st["story"]["last_index"] = 2
+    expected_story = pi.pick_next("story", st, dt.date(2026, 10, 14))
     pi.save_state(st, paths[0])
     assert run(paths, session=s, clock=clock_at(2026, 10, 14)) == 0
     st = json.load(open(paths[0]))
     assert st["feed"]["last_index"] == 0
-    assert st["story"]["last_index"] == 3
+    assert st["feed"]["last_id"] == content.FEED[0]["id"]
+    assert st["story"]["last_index"] == expected_story
+    assert expected_story != 2
 
 
 def test_skip_if_already_posted_today_unless_force(paths, capsys, no_reels):
@@ -298,10 +301,43 @@ def test_seasonal_entries_only_in_their_months():
     st = pi.default_state()
     seasonal = [i for i, e in enumerate(content.FEED) if e.get("months")]
     assert seasonal, "季節ものの項目がある前提"
-    i = seasonal[0]
-    st["feed"]["last_index"] = i - 1
-    assert pi.pick_next("feed", st, dt.date(2026, 10, 20)) == i          # 秋は対象
-    assert pi.pick_next("feed", st, dt.date(2027, 2, 20)) != i           # 冬は飛ばす
+    for i in seasonal:
+        months = content.FEED[i]["months"]
+        in_month = dt.date(2026, months[0], 15)
+        other = next(m for m in range(1, 13) if m not in months)
+        out_month = dt.date(2027, other, 15)
+        st["feed"]["last_index"] = i - 1
+        assert pi.pick_next("feed", st, in_month) == i, content.FEED[i]["id"]
+        assert pi.pick_next("feed", st, out_month) != i, content.FEED[i]["id"]
+
+
+def test_until_is_inclusive_then_skips():
+    st = pi.default_state()
+    found = False
+    for kind, entries in (("feed", content.FEED), ("story", content.STORIES)):
+        dated = [(i, e) for i, e in enumerate(entries) if e.get("until")]
+        for i, e in dated:
+            found = True
+            month, day = pi.parse_month_day(e["until"])
+            st[kind]["last_index"] = i - 1
+            on = dt.date(2026, month, day)
+            if e.get("months"):
+                assert on.month in e["months"], e["id"]
+            assert pi.is_eligible(kind, e, on) is True, e["id"]
+            assert pi.pick_next(kind, st, on) == i, e["id"]
+            after = on + dt.timedelta(days=1)
+            assert pi.is_eligible(kind, e, after) is False, e["id"]
+            assert pi.pick_next(kind, st, after) != i, e["id"]
+    assert found, "until 付きの項目がある前提"
+
+
+def test_parse_month_day():
+    assert pi.parse_month_day("12-25") == (12, 25)
+    assert pi.parse_month_day("1-5") == (1, 5)
+    with pytest.raises(ValueError):
+        pi.parse_month_day("2026-12-25")
+    with pytest.raises(ValueError):
+        pi.parse_month_day("13-01")
 
 
 def test_disabled_entries_are_skipped_in_rotation(monkeypatch):

@@ -18,6 +18,7 @@
   subline   : 小さな英語の1行
   caption   : 投稿文（フィードとリールのみ。ストーリーズはAPIの仕様で文章を付けられません）
   months    : その月だけ投稿する（季節もの）。例 [9, 10, 11]。None なら通年
+  until     : この月日まで投稿する（その日を含む）。例 "12-25"。年をまたがない。省略または None なら期限なし
   enabled   : False にすると投稿しない（画像も作らない）。書かなければ True（投稿する）
 """
 import textwrap
@@ -152,6 +153,47 @@ FEED = [
             BASE_TAGS + " #kyototrip #visitkyoto #kyotojapan #coffeeshop #houseroasted #japancafe",
         ),
         months=None,
+    ),
+
+    # クリスマス飾り付け。2026-11-28時点の続き（f05の次）に置き、飾りを出した直後の数日で出るようにする。
+    dict(
+        id="f15-xmas-tree",
+        photo="xmas-tree.jpg", crop=None, focus=(0.45, 0.55),
+        layout="photo", position="top",
+        headline="店内に、ツリーを飾りました", info="", subline="Our Christmas tree is up in the shop",
+        caption=cap(
+            """
+            店内に、クリスマスツリーを飾りました。
+            きらきらのモールと、赤・緑・金のオーナメントが目印です。
+            寒い日のひと休みに、温かい珈琲はいかがですか。
+            """,
+            """
+            Our Christmas tree is up in the shop.
+            Look for the sparkly tinsel and the red, green and gold ornaments.
+            How about a warm cup of coffee for a break on a cold day?
+            """,
+            BASE_TAGS + " #christmastree #christmasdecor #christmasvibes #cafeinterior #wintercafe #coffeetime #japancafe",
+        ),
+        months=[11, 12],
+    ),
+    dict(
+        id="f16-xmas-snowman",
+        photo="xmas-snowman.jpg", crop=None, focus=(0.50, 0.45),
+        layout="photo", position="top",
+        headline="小さな雪だるまも、お出迎え", info="", subline="A little snowman is here to welcome you",
+        caption=cap(
+            """
+            小さな雪だるまと、フェルトのツリーもお出迎えしています。
+            クリスマスまでの毎日を、珈琲と一緒にどうぞ。
+            """,
+            """
+            A little snowman and a felt Christmas tree are here to welcome you.
+            Enjoy the days leading up to Christmas with a cup of coffee.
+            """,
+            BASE_TAGS + " #snowman #christmasdecor #christmasseason #holidayvibes #wintercafe #coffeebreak #japancafe",
+        ),
+        months=[11, 12],
+        until="12-25",
     ),
     dict(
         id="f06-takeout",
@@ -365,6 +407,25 @@ STORIES = [
     # TODO: 珈琲豆の袋の写真が届いたら差し替える
     dict(id="s02-beans", photo="roaster-poster.jpg", crop=(0.0, 0.55, 1.0, 1.0), focus=(0.25, 0.5), layout="photo", position="top",
          headline="珈琲豆、100gから", info="100g ¥880 ／ 200g ¥1,560（税込）", subline="House-roasted coffee beans"),
+
+    # クリスマス飾り付け。2026-11-28時点の続き（s02の次）に置き、飾りを出した直後の数日で出るようにする。
+    dict(
+        id="s10-xmas-tree",
+        photo="xmas-tree.jpg", crop=None, focus=(0.50, 0.50),
+        layout="photo", position="top",
+        headline="店内がクリスマス仕様に", info="温かい珈琲でひと休みを",
+        subline="Christmas has arrived at Umamachi Coffee",
+        months=[11, 12],
+    ),
+    dict(
+        id="s11-xmas-snowman",
+        photo="xmas-snowman.jpg", crop=None, focus=(0.50, 0.50),
+        layout="photo", position="top",
+        headline="冬の一杯を、ゆっくり", info="クリスマスまでの毎日に",
+        subline="A warm cup for the holiday season",
+        months=[11, 12],
+        until="12-25",
+    ),
     # 京都ムーンバーガー＝目玉焼きのせ。写真は IMG_4147（目玉焼きあり）
     dict(id="s03-kyoto-moon-burger", photo="burger-kyoto-moon.jpg", crop=None, focus=(0.5, 0.5), layout="photo", position="bottom",
          headline="京都ムーンバーガー", info="¥1,000（税込）", subline="Kyoto Moon Burger"),

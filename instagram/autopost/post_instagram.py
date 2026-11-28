@@ -95,6 +95,17 @@ def entries_for(kind):
     return {"feed": content.FEED, "story": content.STORIES, "reel": content.REELS}[kind]
 
 
+def parse_month_day(value):
+    """until の 'MM-DD'（または 'M-D'）を (month, day) にする。"""
+    parts = value.split("-")
+    if len(parts) != 2:
+        raise ValueError(f"until は MM-DD で指定してください: {value!r}")
+    month, day = int(parts[0]), int(parts[1])
+    if not (1 <= month <= 12 and 1 <= day <= 31):
+        raise ValueError(f"until の日付が不正です: {value!r}")
+    return month, day
+
+
 def is_eligible(kind, entry, today):
     if entry.get("enabled", True) is False:
         return False                     # enabled=False の項目は投稿しない
@@ -103,6 +114,9 @@ def is_eligible(kind, entry, today):
     months = entry.get("months")
     if months and today.month not in months:
         return False                     # 季節ものは対象の月だけ
+    until = entry.get("until")
+    if until and (today.month, today.day) > parse_month_day(until):
+        return False                     # until（その日を含む）を過ぎたら出さない
     return True
 
 
